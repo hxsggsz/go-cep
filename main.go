@@ -6,17 +6,12 @@ import (
 )
 
 func main() {
-	cepReq := cep.RequestCepInfo("01001000")
-	fmt.Println(cepReq)
-	// prompt := promptui.Select{
-	// 	Label: "Select Day",
-	// 	Items: []string{
-	// 		"Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
-	// 		"Saturday", "Sunday",
-	// 	},
-	// }
-	//
-	// _, result, err := prompt.Run()
-	// fmt.Println(result)
-	// fmt.Println(err)
+	rawCep := ""
+
+	fmt.Println("Insira seu cep: ")
+	fmt.Scanln(&rawCep)
+
+	cepReq := cep.RequestCepInfo(rawCep)
+
+	fmt.Printf("Logradouro: %v, Complemento: %v, Bairro: %v e Localidade: %v", cepReq.Logradouro, cepReq.Complemento, cepReq.Bairro, cepReq.Localidade)
 }
